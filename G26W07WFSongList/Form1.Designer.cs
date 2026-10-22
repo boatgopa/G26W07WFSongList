@@ -51,6 +51,7 @@
             btnAdd.TabIndex = 1;
             btnAdd.Text = "추가";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += OnAdd;
             // 
             // txtTitle
             // 
