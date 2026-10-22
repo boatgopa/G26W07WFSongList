@@ -24,29 +24,118 @@
         /// </summary>
         private void InitializeComponent() {
             listSong = new ListBox();
+            btnAdd = new Button();
+            txtTitle = new TextBox();
+            txtArtist = new TextBox();
+            txtRating = new TextBox();
+            txtSelected = new TextBox();
+            btnDelete = new Button();
+            txtFilter = new TextBox();
             SuspendLayout();
             // 
             // listSong
             // 
             listSong.FormattingEnabled = true;
-            listSong.Location = new Point(12, 12);
+            listSong.Location = new Point(12, 53);
             listSong.Name = "listSong";
-            listSong.Size = new Size(776, 424);
+            listSong.Size = new Size(776, 364);
             listSong.TabIndex = 0;
+            listSong.SelectedIndexChanged += OnChanged;
+            listSong.DoubleClick += OnYouTube;
+            // 
+            // btnAdd
+            // 
+            btnAdd.Location = new Point(675, 423);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(94, 29);
+            btnAdd.TabIndex = 1;
+            btnAdd.Text = "추가";
+            btnAdd.UseVisualStyleBackColor = true;
+            // 
+            // txtTitle
+            // 
+            txtTitle.Location = new Point(12, 423);
+            txtTitle.Name = "txtTitle";
+            txtTitle.PlaceholderText = "제목";
+            txtTitle.Size = new Size(249, 27);
+            txtTitle.TabIndex = 2;
+            // 
+            // txtArtist
+            // 
+            txtArtist.Location = new Point(267, 423);
+            txtArtist.Name = "txtArtist";
+            txtArtist.PlaceholderText = " 가수";
+            txtArtist.Size = new Size(236, 27);
+            txtArtist.TabIndex = 3;
+            // 
+            // txtRating
+            // 
+            txtRating.Location = new Point(520, 423);
+            txtRating.MaxLength = 1;
+            txtRating.Name = "txtRating";
+            txtRating.PlaceholderText = "평점";
+            txtRating.Size = new Size(135, 27);
+            txtRating.TabIndex = 4;
+            // 
+            // txtSelected
+            // 
+            txtSelected.Enabled = false;
+            txtSelected.Location = new Point(12, 456);
+            txtSelected.Name = "txtSelected";
+            txtSelected.PlaceholderText = "삭제를 위해 선택된 노래";
+            txtSelected.ReadOnly = true;
+            txtSelected.Size = new Size(643, 27);
+            txtSelected.TabIndex = 5;
+            txtSelected.TabStop = false;
+            // 
+            // btnDelete
+            // 
+            btnDelete.Enabled = false;
+            btnDelete.Location = new Point(675, 454);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(94, 29);
+            btnDelete.TabIndex = 6;
+            btnDelete.Text = "삭제";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += OnDelete;
+            // 
+            // txtFilter
+            // 
+            txtFilter.Location = new Point(12, 12);
+            txtFilter.Name = "txtFilter";
+            txtFilter.PlaceholderText = "제목 또는 가수 검색";
+            txtFilter.Size = new Size(776, 27);
+            txtFilter.TabIndex = 7;
+            txtFilter.TextChanged += OnFilterChanged;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 495);
+            Controls.Add(txtFilter);
+            Controls.Add(btnDelete);
+            Controls.Add(txtSelected);
+            Controls.Add(txtRating);
+            Controls.Add(txtArtist);
+            Controls.Add(txtTitle);
+            Controls.Add(btnAdd);
             Controls.Add(listSong);
             Name = "Form1";
             Text = "애창곡";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private ListBox listSong;
+        private Button btnAdd;
+        private TextBox txtTitle;
+        private TextBox txtArtist;
+        private TextBox txtRating;
+        private TextBox txtSelected;
+        private Button btnDelete;
+        private TextBox txtFilter;
     }
 }
